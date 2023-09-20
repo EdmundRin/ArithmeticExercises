@@ -73,7 +73,6 @@ class mainFragment : Fragment() {
 
         // Set listeners for increase and decrease buttons
         increaseButton.setOnClickListener {
-            val currentNumQuestions = numQuestionsEditText.text.toString().toInt()
                 numQuestions += 1
                 numQuestionsEditText.setText(numQuestions.toString())
         }
