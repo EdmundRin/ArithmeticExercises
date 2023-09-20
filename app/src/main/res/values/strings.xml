@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Arithmetic_Exercises Application</string>
+
+    <string name="image_description">Cover Image</string>
+
+    <string name="difficultyTextView">Select difficulty:</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+
+    <string name="operationTextView">Select operation:</string>
+    <string name="addition">Addition</string>
+    <string name="multiplication">Multiplication</string>
+    <string name="division">Division</string>
+    <string name="subtraction">Subtraction</string>
+
+    <string name="numQuestionsText">Number of Questions:</string>
+    <string name="numQuestions">10</string>
+    <string name="increaseButton">+</string>
+    <string name="decreaseButton">-</string>
+    <string name="startButton">START</string>
+    <string name="hint">Your Answer…</string>
+    <string name="doneButton">DONE</string>
+
+    <string name="topTextView">What is…</string>
+    <string name="resultTopTextView">Result</string>
+    <string name="scoreTextView">Your score:</string>
+    <string name="tryAgainButton">Do it again</string>
+</resources>

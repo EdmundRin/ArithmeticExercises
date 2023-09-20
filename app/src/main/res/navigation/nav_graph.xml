@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.arithmetic_exercisesapplication.mainFragment"
+        android:label="mainFragment"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_exerciseFragment"
+            app:destination="@id/exerciseFragment">
+            <argument
+                android:name="selectedDifficulty"
+                app:argType="string"/>
+            <argument
+                android:name="maxOperand"
+                app:argType="integer" />
+            <argument
+                android:name="selectedOperation"
+                app:argType="string"/>
+            <argument
+                android:name="numQuestions"
+                app:argType="integer" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/exerciseFragment"
+        android:name="com.example.arithmetic_exercisesapplication.exerciseFragment"
+        android:label="fragment_exercise"
+        tools:layout="@layout/fragment_exercise">
+        <argument
+            android:name="selectedDifficulty"
+            app:argType="string"/>
+        <argument
+            android:name="maxOperand"
+            app:argType="integer" />
+        <argument
+            android:name="selectedOperation"
+            app:argType="string"/>
+        <argument
+            android:name="numQuestions"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_exerciseFragment_to_resultFragment"
+            app:destination="@+id/resultFragment">
+            <argument
+                android:name="selectedDifficulty"
+                app:argType="string"/>
+            <argument
+                android:name="resultText"
+                app:argType="string"/>
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.arithmetic_exercisesapplication.resultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result">
+        <argument
+            android:name="selectedDifficulty"
+            app:argType="string"/>
+        <argument
+            android:name="resultText"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_resultFragment_to_MainFragment"
+            app:destination="@+id/mainFragment">
+        </action>
+    </fragment>
+
+</navigation>

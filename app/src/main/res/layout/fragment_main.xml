@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_main"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".mainFragment">
+    <!-- Top Image -->
+    <ImageView
+        android:id="@+id/myImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/image_description"
+        android:scaleType="fitCenter"
+        android:src="@drawable/p3"
+        android:adjustViewBounds="true"/>
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="1"
+        android:layout_below="@+id/myImageView">
+        <!-- Radio Group for Difficulty Levels -->
+        <RadioGroup
+            android:id="@+id/difficultyRadioGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/difficultyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/difficultyTextView"
+                android:textColor="@color/grey"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/easyRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/easy"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/mediumRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/medium"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/hardRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hard"
+                android:textSize="20sp" />
+        </RadioGroup>
+        <!-- Radio Group for Arithmetic Operations -->
+        <RadioGroup
+            android:id="@+id/operationRadioGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/operationTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/operationTextView"
+                android:textColor="@color/grey"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/additionRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/addition"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/multiplicationRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/multiplication"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/divisionRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/division"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/subtractionRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/subtraction"
+                android:textSize="20sp" />
+        </RadioGroup>
+    </GridLayout>
+
+    <!-- Input Field for Number of Questions -->
+    <TextView
+        android:id="@+id/numQuestionsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gridLayout"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/numQuestionsText"
+        android:textColor="@color/grey"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/numQuestionsText"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/decreaseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/decreaseButton"
+            android:textSize="40sp"
+            android:textColor="@color/black"
+            android:background="@android:color/transparent"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/numQuestionsEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/numQuestions"
+            android:textColor="@color/black"
+            android:textSize="50sp"
+            android:textAlignment="center"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/increaseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/increaseButton"
+            android:textSize="40sp"
+            android:textColor="@color/black"
+            android:background="@android:color/transparent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+
+
+    <!-- Start Button -->
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/startButton"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:background="@android:color/transparent"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentBottom="true" />
+
+
+</RelativeLayout>
