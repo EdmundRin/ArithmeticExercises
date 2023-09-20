@@ -44,18 +44,15 @@ class mainFragment : Fragment() {
                 R.id.easyRadioButton -> {
                     maxOperand = 10
                     selectedDifficulty = "easy"
-                    numQuestionsEditText.setText(maxOperand.toString())
                 }
 
                 R.id.mediumRadioButton -> {
                     maxOperand = 25
                     selectedDifficulty = "medium"
-                    numQuestionsEditText.setText(maxOperand.toString())
                 }
                 R.id.hardRadioButton -> {
                     maxOperand = 50
                     selectedDifficulty = "hard"
-                    numQuestionsEditText.setText(maxOperand.toString())
                 }
             }
         }
