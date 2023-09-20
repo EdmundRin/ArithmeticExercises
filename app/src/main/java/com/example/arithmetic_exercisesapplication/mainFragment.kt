@@ -17,7 +17,7 @@ class mainFragment : Fragment() {
 
     private lateinit var difficultyRadioGroup: RadioGroup
     private lateinit var operationRadioGroup: RadioGroup
-    private lateinit var numQuestionsEditText: EditText
+    private lateinit var numQuestionsEditText: TextView
     private lateinit var increaseButton: Button
     private lateinit var decreaseButton: Button
 
@@ -44,17 +44,19 @@ class mainFragment : Fragment() {
                 R.id.easyRadioButton -> {
                     maxOperand = 10
                     selectedDifficulty = "easy"
+                    numQuestionsEditText.setText(maxOperand.toString())
                 }
 
                 R.id.mediumRadioButton -> {
                     maxOperand = 25
                     selectedDifficulty = "medium"
+                    numQuestionsEditText.setText(maxOperand.toString())
                 }
                 R.id.hardRadioButton -> {
                     maxOperand = 50
                     selectedDifficulty = "hard"
+                    numQuestionsEditText.setText(maxOperand.toString())
                 }
-
             }
         }
         difficultyRadioGroup.check(R.id.easyRadioButton)
@@ -71,9 +73,11 @@ class mainFragment : Fragment() {
 
         // Set listeners for increase and decrease buttons
         increaseButton.setOnClickListener {
-            numQuestions += 1
-            numQuestionsEditText.setText(numQuestions.toString())
-
+            val currentNumQuestions = numQuestionsEditText.text.toString().toInt()
+            if (currentNumQuestions < maxOperand) {
+                numQuestions += 1
+                numQuestionsEditText.setText(numQuestions.toString())
+            }
         }
 
         decreaseButton.setOnClickListener {

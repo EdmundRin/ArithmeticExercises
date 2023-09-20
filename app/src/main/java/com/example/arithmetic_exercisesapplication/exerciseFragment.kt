@@ -25,6 +25,7 @@ class exerciseFragment : Fragment() {
     private var selectedOperation: String = "addition" // Default operation
     private var numQuestions: Int = 0
     private var selectedDifficulty = "easy"
+    private var currentAnswer: String = ""
     private var currentQuestion: Int = 0
     private var correctAnswers: Int = 0
 
@@ -54,7 +55,8 @@ class exerciseFragment : Fragment() {
                 updateQuestion()
             } else {
                 val accuracy = (correctAnswers.toDouble() / numQuestions.toDouble()) * 100
-                val resultText = "You answered $correctAnswers out of $numQuestions correctly.\nAccuracy: $accuracy%"
+                val formattedAccuracy = String.format("%.2f", accuracy)
+                val resultText = "You answered $correctAnswers out of $numQuestions correctly.\nAccuracy: $formattedAccuracy%"
                 val action = exerciseFragmentDirections.actionExerciseFragmentToResultFragment(selectedDifficulty,resultText)
                 // Navigate to the next screen
                 view.findNavController().navigate(action)
@@ -75,19 +77,32 @@ class exerciseFragment : Fragment() {
     /**
      * Generates a random arithmetic question based on the selected operation and operands range.
      *
-     * @return The generated arithmetic question as a string.
+     * @return The generated arithmetic question as a formatted string.
      */
     private fun generateQuestion(): String {
         val operand1 = (0..maxOperand).random()
         val operand2 = (1..maxOperand).random()
-        val result = when (selectedOperation) {
-            "addition" -> operand1 + operand2
-            "subtraction" -> operand1 - operand2
-            "multiplication" -> operand1 * operand2
-            "division" -> operand1 / operand2
-            else -> 0
+        val operator = when (selectedOperation) {
+            "addition" -> "+"
+            "subtraction" -> "-"
+            "multiplication" -> "×"
+            "division" -> "÷"
+            else -> ""
         }
-        return "$operand1 $selectedOperation $operand2 = ?"
+
+        currentAnswer = when (selectedOperation) {
+            "addition" -> (operand1 + operand2).toString()
+            "subtraction" -> (operand1 - operand2).toString()
+            "multiplication" -> (operand1 * operand2).toString()
+            "division" -> {
+                // Use floating-point division for more precise results
+                val result = operand1.toDouble() / operand2.toDouble()
+                String.format("%.2f", result) // Format the result to 2 decimal places
+            }
+            else -> ""
+        }
+
+        return "$operand1 $operator $operand2"
     }
 
     /**
@@ -95,11 +110,8 @@ class exerciseFragment : Fragment() {
      */
     private fun checkAnswer() {
         val userAnswer = answerEditText.text.toString()
-        val currentQuestionText = questionTextView.text.toString()
-        val expectedAnswer = currentQuestionText.substringAfterLast('=').trim()
-        if (userAnswer == expectedAnswer) {
+        if (userAnswer == currentAnswer) {
             correctAnswers++
         }
     }
-
 }

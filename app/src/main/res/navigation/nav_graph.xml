@@ -71,7 +71,9 @@
             app:argType="string"/>
         <action
             android:id="@+id/action_resultFragment_to_MainFragment"
-            app:destination="@+id/mainFragment">
+            app:destination="@+id/mainFragment"
+            app:popUpTo="@+id/mainFragment"
+            app:popUpToInclusive="true" >
         </action>
     </fragment>
 
