@@ -35,7 +35,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 Building this app presented some challenges, particularly in implementing the dynamic UI updates based on user choices and handling navigation between fragments. Additionally, ensuring accurate calculation of the user's score required careful attention to detail in checking answers.
 
 ## License
-    Copyright [yyyy] [Chuanhao Lin]
+    Copyright [2023] [Chuanhao Lin]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
