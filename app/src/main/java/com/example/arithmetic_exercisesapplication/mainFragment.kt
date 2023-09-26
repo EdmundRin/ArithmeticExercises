@@ -1,5 +1,6 @@
 package com.example.arithmetic_exercisesapplication
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,11 +21,15 @@ class mainFragment : Fragment() {
     private lateinit var numQuestionsEditText: TextView
     private lateinit var increaseButton: Button
     private lateinit var decreaseButton: Button
+    private lateinit var resultTextView: TextView
 
     private var maxOperand = 10 // Default to the max number of questions
     private var selectedDifficulty = "easy" // Default to the easy difficulty level
     private var selectedOperation = "addition" // Default operation
     private var numQuestions = 10
+
+    private var resultText:String? = ""
+    private var accuracy:Int? = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +42,25 @@ class mainFragment : Fragment() {
         numQuestionsEditText = view.findViewById(R.id.numQuestionsEditText)
         increaseButton = view.findViewById(R.id.increaseButton)
         decreaseButton = view.findViewById(R.id.decreaseButton)
+        resultTextView = view.findViewById<TextView>(R.id.resultTextView)
+
+        // Get the passed parameters
+        val args = requireArguments()
+        // Avoid null pointer situations
+        if (args.containsKey("resultText") && args.containsKey("accuracy")) {
+            resultText = args.getString("resultText") ?: ""
+            accuracy = args.getInt("accuracy", 0)
+            // Find TextView
+            val resultTextView = view.findViewById<TextView>(R.id.resultTextView)
+            if (accuracy!! >= 80) {
+                resultTextView?.setText("$resultText Good work!")
+                resultTextView?.setTextColor(Color.GRAY)
+            } else {
+                resultTextView?.setText("$resultText You need to practice more!")
+                resultTextView?.setTextColor(Color.RED)
+            }
+            resultTextView.visibility = View.VISIBLE
+        }
 
         // Set listeners for the difficulty and operation RadioGroups
         difficultyRadioGroup.setOnCheckedChangeListener { _, checkedId ->

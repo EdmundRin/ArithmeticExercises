@@ -1,3 +1,4 @@
+/*
 package com.example.arithmetic_exercisesapplication
 
 import android.os.Bundle
@@ -9,11 +10,14 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.findNavController
 
-/**
+*/
+/*
  * A simple [Fragment] subclass.
  * Fragment for displaying the result of the arithmetic exercise.
  * It shows the user's score, the selected difficulty, and provides an option to start a new exercise.
- */
+ *//*
+
+
 class resultFragment : Fragment() {
     private lateinit var difficultyTextView: TextView
     private lateinit var scoreTextView: TextView
@@ -47,3 +51,4 @@ class resultFragment : Fragment() {
         return view
     }
 }
+*/

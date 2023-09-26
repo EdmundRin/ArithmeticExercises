@@ -13,6 +13,7 @@
     <string name="multiplication">Multiplication</string>
     <string name="division">Division</string>
     <string name="subtraction">Subtraction</string>
+    <string name="result">Result</string>
 
     <string name="numQuestionsText">Number of Questions:</string>
     <string name="numQuestions">10</string>

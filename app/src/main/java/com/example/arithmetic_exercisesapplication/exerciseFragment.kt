@@ -1,5 +1,6 @@
 package com.example.arithmetic_exercisesapplication
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 
@@ -28,6 +30,8 @@ class exerciseFragment : Fragment() {
     private var currentAnswer: String = ""
     private var currentQuestion: Int = 0
     private var correctAnswers: Int = 0
+    private lateinit var correctMediaPlayer: MediaPlayer
+    private lateinit var wrongMediaPlayer: MediaPlayer
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +49,10 @@ class exerciseFragment : Fragment() {
         answerEditText = view.findViewById(R.id.answerEditText)
         doneButton = view.findViewById(R.id.doneButton)
 
+        // Initialize MediaPlayer
+        correctMediaPlayer = MediaPlayer.create(requireContext(), R.raw.correct)
+        wrongMediaPlayer = MediaPlayer.create(requireContext(), R.raw.wrong)
+
         // Initialize the exercise
         updateQuestion()
 
@@ -56,13 +64,13 @@ class exerciseFragment : Fragment() {
             } else {
                 val accuracy = (correctAnswers.toDouble() / numQuestions.toDouble()) * 100
                 val formattedAccuracy = String.format("%.2f", accuracy)
-                val resultText = "You answered $correctAnswers out of $numQuestions correctly.\nAccuracy: $formattedAccuracy%"
-                val action = exerciseFragmentDirections.actionExerciseFragmentToResultFragment(selectedDifficulty,resultText)
+                val resultText = "You answered $correctAnswers out of $numQuestions correctly in $selectedOperation.\nAccuracy: $formattedAccuracy%"
+                //val action_old = exerciseFragmentDirections.actionExerciseFragmentToResultFragment(selectedDifficulty,resultText)
+                val action = exerciseFragmentDirections.actionExerciseFragmentToMainFragment(resultText,accuracy.toInt())
                 // Navigate to the next screen
                 view.findNavController().navigate(action)
             }
         }
-
         return view
     }
     /**
@@ -107,10 +115,27 @@ class exerciseFragment : Fragment() {
 
     /**
      * Checks the user's answer against the expected answer and updates the score.
+     * A Toast will pop up for the user's answer to show whether the answer is correct or not,
+     * and the corresponding sound will be played at the same time.
      */
     private fun checkAnswer() {
         val userAnswer = answerEditText.text.toString()
-        if (userAnswer == currentAnswer) {
+        val isCorrect = userAnswer == currentAnswer
+        // Set different Toast messages depending on the correctness of the answer.
+        val toastMessage = if (isCorrect) {
+            "Correct! Well done!"
+        } else {
+            "Incorrect. Try harder next time."
+        }
+        // Play the sound when the answer is correct
+        if (isCorrect) {
+            correctMediaPlayer.start()
+        } else{
+            wrongMediaPlayer.start()
+        }
+        // Show Toast message
+        Toast.makeText(requireContext(), toastMessage, Toast.LENGTH_SHORT).show()
+        if (isCorrect) {
             correctAnswers++
         }
     }

@@ -16,6 +16,19 @@
         android:scaleType="fitCenter"
         android:src="@drawable/p3"
         android:adjustViewBounds="true"/>
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myImageView"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/result"
+        android:visibility="gone"/>
 
     <GridLayout
         android:id="@+id/gridLayout"
@@ -23,7 +36,7 @@
         android:layout_height="wrap_content"
         android:columnCount="2"
         android:rowCount="1"
-        android:layout_below="@+id/myImageView">
+        android:layout_below="@+id/resultTextView">
         <!-- Radio Group for Difficulty Levels -->
         <RadioGroup
             android:id="@+id/difficultyRadioGroup"

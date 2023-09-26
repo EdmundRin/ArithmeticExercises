@@ -10,6 +10,12 @@
         android:name="com.example.arithmetic_exercisesapplication.mainFragment"
         android:label="mainFragment"
         tools:layout="@layout/fragment_main">
+        <argument
+            android:name="resultText"
+            app:argType="string"/>
+        <argument
+            android:name="accuracy"
+            app:argType="integer"/>
         <action
             android:id="@+id/action_mainFragment_to_exerciseFragment"
             app:destination="@id/exerciseFragment">
@@ -45,8 +51,7 @@
         <argument
             android:name="numQuestions"
             app:argType="integer" />
-
-        <action
+        <!--<action
             android:id="@+id/action_exerciseFragment_to_resultFragment"
             app:destination="@+id/resultFragment">
             <argument
@@ -55,10 +60,21 @@
             <argument
                 android:name="resultText"
                 app:argType="string"/>
+        </action>-->
+        <action
+            android:id="@+id/action_exerciseFragment_to_mainFragment"
+            app:destination="@+id/mainFragment">
+            <argument
+                android:name="resultText"
+                app:argType="string"/>
+            <argument
+                android:name="accuracy"
+                app:argType="integer"/>
         </action>
+
     </fragment>
 
-    <fragment
+    <!--<fragment
         android:id="@+id/resultFragment"
         android:name="com.example.arithmetic_exercisesapplication.resultFragment"
         android:label="fragment_result"
@@ -75,6 +91,6 @@
             app:popUpTo="@+id/mainFragment"
             app:popUpToInclusive="true" >
         </action>
-    </fragment>
+    </fragment>-->
 
 </navigation>
