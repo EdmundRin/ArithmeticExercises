@@ -28,7 +28,7 @@ The following **extensions** are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](https://github.com/EdmundRin/ArithmeticExercises/blob/master/Test2.gif)
+![Video Walkthrough](https://github.com/EdmundRin/ArithmeticExercises/blob/Project_4/Test2.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
