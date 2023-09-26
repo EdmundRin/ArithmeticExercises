@@ -18,6 +18,8 @@ The following **required** functionality is completed:
 
 The following **extensions** are implemented:
 
+* [x] User can know from Toast whether the answer to the question is correct or not.
+* [x] User can know from Sound whether the answer to the question is correct or not.
 * [ ] User can set a time limit for completing the exercise.
 * [ ] User can customize the appearance and theme of the app.
 * [ ] User can view a history of past exercise results.
@@ -27,6 +29,7 @@ The following **extensions** are implemented:
 Here's a walkthrough of implemented user stories:
 
 ![Video Walkthrough](https://github.com/EdmundRin/ArithmeticExercises/blob/master/Test.gif)
+![Video Walkthrough](https://github.com/EdmundRin/ArithmeticExercises/blob/master/Test2.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
